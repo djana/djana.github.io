@@ -16,3 +16,8 @@ html, body {
 .container .text-muted {
     margin: 10px 0;
 }
+
+.socialmedia{
+    margin: 0 7px;
+    float:right;
+}
