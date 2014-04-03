@@ -1,9 +1,10 @@
-(function(){        
-        // Define the map view and authors original center with 834px width  [46, 25.1]
+ function init(){
+       // Define the map view and authors original center with 834px width  [46, 25.1]
         var map = L.map('map', {
             center:[46, 24.2], zoom: 7, minZoom: 4, maxZoom: 17, zoomControl: false
         });
         map.attributionControl.setPrefix('N. Panchaud');
+
         
         // Set up layers, add the default to the map
         var osm_BW = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
@@ -103,9 +104,8 @@
         // and set up the switch for the layer
         var baseMaps = {
             "Black and White": osm_BW,
-            "OpenStreetMap": osm_plain,
-           
-        };
+            "OpenStreetMap": osm_plain
+            };
         var overlayMaps = {
             "ROSM": ro_osm_base,
             "ROSM amenity": ro_osm_amenity,
@@ -115,15 +115,14 @@
             "County Council President 2012": pc_judete_presedinti_2012,
             "Dobrogea: Lakes and Rivers": dob_water,
             "Dobrogea: Transport Infrastructure": dob_infra,
-            "Dobrogea: Touristic Information": dob_tourism,
+            "Dobrogea: Touristic Information": dob_tourism
         };
         
         
         // Add the zoom and layer countrol as well as a scale
         L.control.layers(baseMaps, overlayMaps, {position:'topleft', collapsed: false}).addTo(map);
+        L.control.scale().addTo(map);
         L.control.zoom({
             position: 'topright'
         }).addTo(map);
-        L.control.scale().addTo(map);
-        
-        }());
+}

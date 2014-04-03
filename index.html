@@ -27,8 +27,9 @@
          <![endif]-->
                                     
         <!-- Leaflet -->
+        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+
                                     
         <!-- Plugins -->
         <!--<script src="plugins/Leaflet.ActiveLayers/src/ActiveLayers.js"></script>
@@ -36,9 +37,9 @@
         <script src="plugins/Leaflet.groupedlayercontrol/src/leaflet.groupedlayercontrol.js"></script>
         <link href="css/grouped-layers.css" rel="stylesheet">-->
             
-        <script src="js/interactivity.js"></script>    
+        <script type="text/javascript" src="js/interactivity.js"></script>    
     </head>
-    <body>
+    <body onload="init()">
         <!-- Wrap all page content here -->
         <div id="wrap">
             
@@ -57,9 +58,7 @@
                 </div>
                 
                 <div class="row">
-                    <!--<div class="col-xs-3"> Move the thematical navigation here</div>-->
                     <div class="col-xs-12">
-                        <!--<div id="map" style="width: 834px; height: 600px"></div>-->
                         <div id="map" style="width:1112px; height:600px"></div>
                     </div>
                 </div>
