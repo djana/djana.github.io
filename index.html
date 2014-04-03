@@ -1,0 +1,205 @@
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        
+        <!-- Only needed for a responsive page -->
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+        <meta name="description" content="Version lite of The Geoportal from the GEOIDEA.RO project"/>
+        <meta name="author" content="Nadia Panchaud"/>
+        <link type="image/x-icon" href="images/favicon_lite.ico" rel="shortcut icon"/>
+        <title>GEOIDEA.RO | The GEOPORTAL Lite</title>
+                            
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet"/>                           
+        <!-- Custom styles for the sticky-footer -->
+        <link href="css/sticky-footer.css" rel="stylesheet"/>
+        <!-- Overwrite the respoinsiveness : set fix width -->  
+        <style>
+            .container {width: 1152px!important;}
+        </style>
+                                    
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+         <![endif]-->
+                                    
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+                                    
+        <!-- Plugins -->
+        <!--<script src="plugins/Leaflet.ActiveLayers/src/ActiveLayers.js"></script>
+            <script src="plugins/SelectLayersControl/src/SelectLayers.js"></script>-->
+        <script src="plugins/Leaflet.groupedlayercontrol/src/leaflet.groupedlayercontrol.js"></script>
+        <link href="css/grouped-layers.css" rel="stylesheet">                                 
+    </head>
+    <body>
+        <!-- Wrap all page content here -->
+        <div id="wrap">
+            
+            <!-- Begin page content -->
+            <div class="container">
+                <div class="page-header">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="#">Geodata Viewer</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="help.html">FAQ &amp; Contact</a></li>
+                    </ul> 
+                    <a style="float:right" href="http://geoidea.ro" target="_blank">
+                        <img id="geoidea_logo" alt="geoidea" src="images/geoidea_logo.png" width="208.5" height="47"/>
+                    </a>
+                    <h1>GEOIDEA.RO | THE GEOPORTAL Lite</h1>
+                </div>
+                
+                <div class="row">
+                    <!--<div class="col-xs-3"> Move the thematical navigation here</div>-->
+                    <div class="col-xs-12">
+                        <!--<div id="map" style="width: 834px; height: 600px"></div>-->
+                        <div id="map" style="width:1112px; height:600px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted">Copyright © GEOIDEA.RO All right reserved 2013 - 2014.</p>
+            </div>
+        </div>
+        <!-- if needed inline -->
+        <script type="text/javascript">
+    (function(){        
+        // Define the map view and authors original center with 834px width  [46, 25.1]
+        var map = L.map('map', {
+            center:[46, 24.2], zoom: 7, minZoom: 4, maxZoom: 17, zoomControl: false
+        });
+        map.attributionControl.setPrefix('N. Panchaud');
+        
+        // Set up layers, add the default to the map
+        var osm_BW = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+        }).addTo(map);
+        
+        var osm_plain = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
+        });
+        
+        // Add WMS Layers from GEOIDEA
+        var pc_wms = "http://geoidea.ethz.ch/cgi-bin/geoidea/nadia/qgis_mapserv.cgi?map=politicalcolours_DB.qgs";
+        var dob_wms ="http://geoidea.ethz.ch/cgi-bin/geoidea/nadia/qgis_mapserv.cgi?map=dobrogea_DB4.qgs";
+        var ro_osm_wms = "http://geoidea.ethz.ch/cgi-bin/qgis_mapserv.cgi?map=ro_osm_nov20_DB.qgs";
+        
+        var pc_population = L.tileLayer.wms(pc_wms,
+        {
+            layers: 'ro_statistici',
+            format: 'image/png',
+            transparent: true,
+            version: '1.3.0',
+            attribution: '&amp; <a href="http://despresate.strainu.ro/">despresate</a>'
+        }).setOpacity(0.6);
+        
+        var pc_primari_2012 = L.tileLayer.wms(pc_wms,
+        {
+            layers: 'ro_uat_primari_2012',
+            format: 'image/png',
+            transparent: true,
+            version: '1.3.0',
+            attribution: '&amp; politicalcolours'
+        }).setOpacity(0.5);
+        
+        var pc_judete_presedinti_2012 = L.tileLayer.wms(pc_wms,
+        {
+            layers: 'ro_judet_presedinti_cj_2012',
+            format: 'image/png',
+            transparent: true,
+            version: '1.3.0',
+            attribution: '&amp; politicalcolours'
+        }).setOpacity(0.5);
+        
+        var dob_infra = L.tileLayer.wms(dob_wms,
+        {
+            layers: 'dob_roads,dob_roads_ukraine,dob_railways',
+            format: 'image/png',
+            transparent: true,
+            version: '1.3.0',
+            attribution: '&amp; Faculty of Geography, University of Bucharest'
+          }).setOpacity(0.7);
+          
+        var dob_water = L.tileLayer.wms(dob_wms,
+        {
+            layers: 'dob_lakes,dob_lakes_ukraine,dob_river_perm,dob_river_temp,dob_canal_dbs,dob_water',
+            format: 'image/png',
+            transparent: true,
+            version: '1.3.0',
+            attribution: '&amp; Faculty of Geography, University of Bucharest'
+          }).setOpacity(0.7);
+          
+          var dob_tourism = L.tileLayer.wms(dob_wms,
+        {
+            layers: 'dob_reserves,dob_parks,dob_panorama,dob_poi_tourism,dob_lighthouse',
+            format: 'image/png',
+            transparent: true,
+            version: '1.3.0',
+            attribution: '&amp; Faculty of Geography, University of Bucharest'
+          }).setOpacity(0.7);
+        
+        var ro_osm_base = L.tileLayer.wms(ro_osm_wms,
+        {
+            layers: 'ro_landuse_pl,ro_natural_pl,ro_building_pl,ro_waterway_ln,ro_highway_ln,ro_railway_ln,ro_natural_pt',
+            format: 'image/png',
+            transparent:true,
+            version:'1.3.0',
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
+        })<!--.setOpacity(0.8)-->;
+            
+        var ro_osm_amenity = L.tileLayer.wms(ro_osm_wms,
+        {
+            layers: 'ro_amenity_pt',
+            format: 'image/png',
+            transparent:true,
+            version:'1.3.0',
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
+        })<!--.setOpacity(0.8)-->;
+            
+        var ro_osm_extra = L.tileLayer.wms(ro_osm_wms,
+        {
+            layers: 'ro_historic_pt,ro_highway_pt,ro_railway_pt',
+            format: 'image/png',
+            transparent:true,
+            version:'1.3.0',
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
+        })<!--.setOpacity(0.8)-->;
+        
+        // and set up the switch for the layer
+        var baseMaps = {
+            "Black and White": osm_BW,
+            "OpenStreetMap": osm_plain,
+           
+        };
+        var overlayMaps = {
+            "ROSM": ro_osm_base,
+            "ROSM amenity": ro_osm_amenity,
+            "ROSM extra": ro_osm_extra,
+            "Population Density 2012": pc_population,
+            "Municipality Mayor 2012": pc_primari_2012,
+            "County Council President 2012": pc_judete_presedinti_2012,
+            "Dobrogea: Lakes and Rivers": dob_water,
+            "Dobrogea: Transport Infrastructure": dob_infra,
+            "Dobrogea: Touristic Information": dob_tourism,
+        };
+        
+        
+        // Add the zoom and layer countrol as well as a scale
+        L.control.layers(baseMaps, overlayMaps, {position:'topleft', collapsed: false}).addTo(map);
+        L.control.zoom({
+            position: 'topright'
+        }).addTo(map);
+        L.control.scale().addTo(map);
+        
+        }());
+        </script>
+    </body>
+</html>
