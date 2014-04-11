@@ -49,31 +49,78 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <h3>FAQ</h3>
-                        <h5>What are geodata?</h5>
+                        <h4>Questions</h4>
+                        <h6> Regarding geodata:</h6>
+                        <ul>
+                            <li><a href="#toc_geodata">What are geodata?</a></li>
+                            <li><a href="#toc_opengeodata">What are open geodata?</a></li>
+                            <li><a href="#toc_polsitu">What is the political situation in Romania in regards to open (geo)data?</a></li>
+                        </ul>
+                        <h6> Regarding the geoportal:</h6>
+                        <ul>
+                            <li><a href="#toc_sources">What are the sources of the geodata used by the Geoportal?</a></li>
+                            <li><a href="#toc_viewer">How does the Geodata Viewer work?</a></li>
+                            <li><a href="#toc_download">How can I download the geodata on the geoportal?</a></li>
+                        </ul>
+                        <p><br/></p>
+                        <h4>Answers</h4>
+                        <h5 id="toc_geodata">What are geodata?</h5>
                         <p>As Geodata we can define every dataset that has a spatial aspect or component. Synonyms are "spatial data",
                             "geographic data", "geographic data sets" or "GIS data". The syllable "Geo" implies that the dataset has a
                             spatial component that allows to georeference the described phenomena to a location or region on the earth.</p>
-                        <h5>What are open geodata?</h5>
+                        <h5 id="toc_opengeodata">What are open geodata?</h5>
                         <p>The idea of open data, and thus of open geodata, is that they should be freely accessible to the public in the sense of
-                            at no cost and without any restriction linked to patent or copyright. The following definition can be found on <a href="http://opendefinition.org/" target="_blank">opendefinition.org</a>:</p>
-                        <blockquote>A piece of data or content is open if anyone is free to use, reuse, and redistribute it — subject only, at most, to the requirement to attribute and/or share-alike</blockquote>
-                        <!-- Added question -->
-                        <h5>How does the Geodata Viewer work?</h5>
-                        <p>We employ a three-tier-architecture for our system: a database (the data tier), services (the logic tier) and the graphical user interface (the presentation tier).
-                            The geodata are stored in a PostSQL 2.0 database and partially in a file system (which is to be phased out). We use a QGIS MapServer to access the geodata and a custom extraction service for the processing and clipping of the geodata. The geodata are displayed to the end-user in an interface powered by GeoVITe and designed with SVG (scalable vector graphics) and with Javascript functionalities.</p>
-                        <h5>What is the origin of the geodata used by the Geoportal?</h5>
-                        <p>The two base maps “Black and white” and “OpenStreetMap” are directly picked from the non-profit organization OpenStreetMap. Inspired by the success of Wikipedia this collaborative project wants to create a free editable map of the world, independent of restrictions or availability. In a further stage these maps will be replaced by charts derived from own datasets.
-                            The ROSM-map (Romanian OpenStreetMap) bases on OpenStreetMaps standard Mapnik, but is transferred to Romanian mapstyle and shows elements of landuse, transport and nature. “ROSM amenity” extends the content by showing objects like points if interest, restaurants, bars, car parks or hospitals. Elements of transport like railway stations or bus stops are summarized in the map “ROSM extra”.
-                            The following three maps show statistical data: The data of population density in 2012 are provided by the project “Despre Sate”, that offers statistical data concerning the administration, the economy, the demography and historical monuments for all Romanian localities. The maps “Municipality Mayor 2012” and “Country Council President 2012” are developed with help from the Political Colors project supported by the Romanian Central Bureau of Elections and the National Institute of Statistics.
-                            The touristic Dobrogea area along the Black Sea coast is covered with three different maps showing lakes and rivers, transport infrastructure and touristic information. These maps are produced and released as open data for touristic purposes by the University of Bucharest, Faculty of Geography.</p>
-                        <h5>How can I download geodata?</h5>
-                        <p>In a further updated version you will get the possibility to download geodata either by using a dataframe to define an area or by selecting a whole map layer.
-                            At the moment you only can view geodata in the Geoportal lite version. For downloading data you have to change to the main Project:
-                            <a href="https://geodata.ethz.ch/geoidea.ro/geoidea_index.jsp">Geoidea.ro</a>  
-                            </p>
-                        <h5>Which political changes had been undertaken to enable the project?</h5>
-                        <p>Over the last twenty years, the Romanian geo-information sector has changed his focus under the influence of the fast development of new technology. Instead of printed map products now geo-information systems (shortened GIS) cover the wide range of requirements. Caused by the accession to the European Union in 2007, Romania has to implement EU initiatives like the Directive for an Infrastructure for Spatial InfoRmation in Europe (INSPIRE). Its purpose is the harmonization of geodata provided by the administrations of the member states. Furthermore it demands the implementation of a standardized interface for simplified exchange of geodata across borders. In Romania INSPIRE was realized by the constitution of the National Spatial Data Infrastructure Council (INIS) due to Government Ordinance in 2010. 
-                            Another initiative initialized by the European Union in 2003 and translated into action by the Romanian government in 2005, requires an opening of environmental information to the general public. So any applicant has the right to view data at his request without having to state an interest or paying an unreasonable amount. For realization new online databases with free access have to be developed and existing ones have to be enhanced by a public-administration interface.</p>
+                            at no cost and without any restriction linked to patent or copyright. The following definition can be found on 
+                            <a href="http://opendefinition.org/" target="_blank">opendefinition.org</a>:</p>
+                        <blockquote>A piece of data or content is open if anyone is free to use, reuse, and redistribute it — subject only, 
+                            at most, to the requirement to attribute and/or share-alike</blockquote>
+                        <!-- Added questions from Jan -->
+                        <h5 id="toc_polsitu">What is the political situation in Romania in regards to open (geo)data?</h5>
+                        <p> Thanks to its accession to the European Union in 2007, Romania has to implement EU initiatives like the Directive for an Infrastructure for Spatial 
+                            InfoRmation in Europe (INSPIRE).
+                            Its purpose is the harmonization of geodata provided by the administrations of the member states. Furthermore it demands the implementation of a standardized 
+                            interface for simplified exchange of geodata across borders. In Romania, INSPIRE started with the constitution of the National Spatial Data 
+                            Infrastructure Council (INIS) based on a Government Ordinance in 2010. The INIS Council is responsible for the coordination and implementation of the
+                            INSPIRE Directive in Romania.
+                            The Romanian Government also signed the Open Governemnt Partnership in 2011 and launched an <a href="http://data.gov.ro" target="_blank">open data portal</a> 
+                            that include open data with a spatial component.</p>
+                        <!-- Another initiative, initialized by the European Union in 2003 and translated into action by the Romanian government in 2005, requires an opening 
+                            of environmental information to the general public. So any applicant has the right to view data at his request without having to state an interest 
+                            or paying an unreasonable amount. For realization new online databases with free access have to be developed and existing ones have to be enhanced 
+                            by a public-administration interface. NOT CLEAR: ask Jan where he got that-->
+                        <p>For more information about the legal and political situation, as well as the actual conditions, regarding open geodata in Romania, please visit 
+                            the project website, and more specifically the <a href="http://geoidea.ethz.ch/en/en_results.html">Results</a> page.</p>
+                        <h5 id="toc_sources">What are the sources of the geodata used by the Geoportal?</h5>
+                        <p>The two base maps <strong>Black and White</strong> and <strong>OpenStreetMap</strong> are directly used from the non-profit organization OpenStreetMap. 
+                            Inspired by the success of Wikipedia, this collaborative project wants to create a free editable map of the world, independent of restrictions or availability. 
+                            In a further stage these maps will be replaced by our own map tiles based on the OSM data.</p>
+                        <p>The <strong>ROSM</strong> layer(Romanian OpenStreetMap) uses the OpenStreetMaps data and a similar symbolization and shows elements of landuse, 
+                            transport and nature.</p>
+                        <p><strong>ROSM amenity</strong> layer extends the content by showing objects like points of interest, restaurants, bars, car parks or hospitals. Elements of 
+                            transport like railway stations or bus stops are displayed in the layer <strong>ROSM extra</strong>.</p>
+                        <p>The following three maps show <strong>statistical data</strong>: The population density in 2012 are provided by the project “Despre Sate”, that offers statistical 
+                            data regarding the administration, the economy, the demography and historical monuments for all Romanian localities. The maps “Municipality Mayor 2012” 
+                            and “Country Council President 2012” were developed using data from the following sources:
+                            The Central Bureau of Elections,The National Institute of Statistics,The National Agency for Cadastre and Land Registration, and 
+                            http://www.ancpi.ro/dwf/INDEX_1_2.dwf and derivative works of the above.
+                             All the information and works in the current website are available in the public domain or are licenced via Creative Commons 
+                             Attribution-ShareAlike 3.0 Unported License (as applicable). The source code of the application is licenced under GPLv3. 
+                             All data and code source are available for download on the webpage www.politicalcolours.ro for personal use.</p>
+                        <p>The three layers covering the touristic  area of <strong>Dobrogea</strong> along the Black Sea coast offers information about lakes and rivers, transport infrastructure and 
+                            touristic information. These maps and data were produced and released under an open licence for touristic purposes by the University of Bucharest, Faculty of Geography.</p>
+                        <h5  id="toc_viewer">How does the Geodata Viewer work?</h5>
+                        <p>We employ a three-tier-architecture for our system: a database (the data tier), services (the logic tier) and the graphical user 
+                            interface (the presentation tier).
+                            The PostgreSQL/PostGIS database stores the geodata that are access by a QGIS Server with a Web Map Service (WMS). The WMS generates 
+                            the data visualization and sends the visualization, or map, to the graphical user interface (GUI) in an image format. The GUI is based 
+                            on a simple use of the basic functionality of the <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> framework and the 
+                            <a href="http://leafletjs.com/" target="_blank">Leaflet</a> library for the map delivery.</p>
+                        <h5  id="toc_download">How can I download the geodata on the geoportal?</h5>
+                        <p>This is only an alpha verson and the download tools are not available yet. However, in a further version, you will get the possibility to download geodata either by 
+                            using a dataframe to define an area or by selecting a whole map layer.
+                            At the moment, you only can view geodata in The Geoportal Lite. For downloading data , you can visit the Geoportal Pro at
+                            <a href="https://geodata.ethz.ch/geoidea.ro/geoidea_index.jsp">Geoidea.ro - The Geoportal</a>.</p>
+                        
                     </div>
                     <div class="col-xs-4">
                         <h3>Contact</h3>
