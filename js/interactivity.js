@@ -16,9 +16,19 @@
         });
         
         // Add WMS Layers from GEOIDEA
-        var pc_wms = " 	http://geocarto.ethz.ch/cgi-bin/ro_politicalcolours/qgis_mapserv.fcgi?";
+        var pc_wms = "http://geocarto.ethz.ch/cgi-bin/ro_politicalcolours/qgis_mapserv.fcgi?";
         var dob_wms ="http://geocarto.ethz.ch/cgi-bin/dob_vector/qgis_mapserv.fcgi?";
-        var ro_osm_wms = "http://geocarto.ethz.ch/cgi-bin/osm/qgis_mapserv.cgi?map=ro_osm_20150601.qgs";
+        var ro_osm_wms = "http://geocarto.ethz.ch/cgi-bin/osm/qgis_mapserv.fcgi?map=ro_osm_20150601.qgs";
+        var raster = "http://geocarto.ethz.ch/cgi-bin/ro_raster_data/qgis_mapserv.fcgi?";
+        
+        var ro_relief = L.tileLayer.wms(raster,
+        {
+            layers:"ro_glsdem_relief_shaded",
+            format: 'image/png',
+            transparent: true,
+            version: '1.3.0',
+            attribution: '&amp; USGS(2008) for the <a href="http://landcover.org/data/glsdem/">GDSLDEM</a> relief'
+        }).setOpacity(0.6);
         
         var pc_population = L.tileLayer.wms(pc_wms,
         {
@@ -76,28 +86,28 @@
         
         var ro_osm_base = L.tileLayer.wms(ro_osm_wms,
         {
-            layers: 'ro_landuse_pl,ro_natural_pl,ro_building_pl,ro_waterway_ln,ro_highway_ln,ro_railway_ln,ro_natural_pt',
+            layers: 'ro_osm_landuse_pl,ro_osm_natural_pl,ro_osm_building_pl,ro_osm_waterway_ln,ro_osm_highway_ln,ro_osm_railway_ln,ro_osm_natural_pt',
             format: 'image/png',
             transparent:true,
-            version:'1.3.0',
+            version:'1.1.1',
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
         })<!--.setOpacity(0.8)-->;
             
         var ro_osm_amenity = L.tileLayer.wms(ro_osm_wms,
         {
-            layers: 'ro_amenity_pt',
+            layers: 'ro_osm_amenity_pt',
             format: 'image/png',
             transparent:true,
-            version:'1.3.0',
+            version:'1.1.1',
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
         })<!--.setOpacity(0.8)-->;
             
         var ro_osm_extra = L.tileLayer.wms(ro_osm_wms,
         {
-            layers: 'ro_historic_pt,ro_highway_pt,ro_railway_pt',
+            layers: 'ro_osm_historic_pt,ro_osm_highway_pt,ro_osm_railway_pt',
             format: 'image/png',
             transparent:true,
-            version:'1.3.0',
+            version:'1.1.1',
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
         })<!--.setOpacity(0.8)-->;
         
@@ -108,7 +118,8 @@
                 expanded: true,
                 layers:{
                     "Black & White":osm_BW,
-                    "Classic OSM": osm_plain
+                    "Classic OSM": osm_plain,
+                    "Relief": ro_relief
                 }
             }
             
@@ -151,24 +162,6 @@
                 }
             }
         ]; 
-        
-        
-        
-        /*var baseMaps = {
-            "Black and White": osm_BW,
-            "OpenStreetMap": osm_plain
-            };
-        var overlayMaps = {
-            "ROSM": ro_osm_base,
-            "ROSM amenity": ro_osm_amenity,
-            "ROSM extra": ro_osm_extra,
-            "Population Density 2012": pc_population,
-            "Municipality Mayor 2012": pc_primari_2012,
-            "County Council President 2012": pc_judete_presedinti_2012,
-            "Dobrogea: Lakes and Rivers": dob_water,
-            "Dobrogea: Transport Infrastructure": dob_infra,
-            "Dobrogea: Touristic Information": dob_tourism
-        };*/
         
         
         var options ={
