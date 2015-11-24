@@ -16,9 +16,9 @@
         });
         
         // Add WMS Layers from GEOIDEA
-        var pc_wms = "http://geoidea.ethz.ch/cgi-bin/geoidea/nadia/qgis_mapserv.cgi?map=politicalcolours_DB.qgs";
-        var dob_wms ="http://geoidea.ethz.ch/cgi-bin/geoidea/nadia/qgis_mapserv.cgi?map=dobrogea_DB4.qgs";
-        var ro_osm_wms = "http://geoidea.ethz.ch/cgi-bin/qgis_mapserv.cgi?map=ro_osm_nov20_DB.qgs";
+        var pc_wms = " 	http://geocarto.ethz.ch/cgi-bin/ro_politicalcolours/qgis_mapserv.fcgi?";
+        var dob_wms ="http://geocarto.ethz.ch/cgi-bin/dob_vector/qgis_mapserv.fcgi?";
+        var ro_osm_wms = "http://geocarto.ethz.ch/cgi-bin/osm/qgis_mapserv.cgi?map=ro_osm_20150601.qgs";
         
         var pc_population = L.tileLayer.wms(pc_wms,
         {
@@ -102,7 +102,59 @@
         })<!--.setOpacity(0.8)-->;
         
         // and set up the switch for the layer
-        var baseMaps = {
+        var baseMaps =[
+            {
+                groupName:"Base Maps",
+                expanded: true,
+                layers:{
+                    "Black & White":osm_BW,
+                    "Classic OSM": osm_plain
+                }
+            }
+            
+        ];
+        var overlayMaps = [
+            {
+                groupName: "Dobrogea",
+                expanded:false,
+                layers:{
+                "infra": dob_infra,
+                "water": dob_water,
+                "tourism": dob_tourism
+                    
+                }
+            },
+            {
+                groupName:"OSM4RO",
+                expanded:false,
+                layers:{
+                "Base":ro_osm_base,
+                "Amenity":ro_osm_amenity,
+                "Extra":ro_osm_extra
+                    
+                }
+            },
+            {
+                groupName:"Political Colours",
+                expanded: false,
+                layers:{
+                "Municipality Mayor 2012":pc_primari_2012,
+                "County Council President 2012":pc_judete_presedinti_2012
+                    
+                }
+            },
+            {
+                groupName: "Statistics",
+                expanded:false,
+                layers:{
+                   "Population Density 2012": pc_population
+                }
+            }
+        ]; 
+        
+        
+        
+        /*var baseMaps = {
             "Black and White": osm_BW,
             "OpenStreetMap": osm_plain
             };
@@ -116,11 +168,20 @@
             "Dobrogea: Lakes and Rivers": dob_water,
             "Dobrogea: Transport Infrastructure": dob_infra,
             "Dobrogea: Touristic Information": dob_tourism
+        };*/
+        
+        
+        var options ={
+            container_width: "250px",
+            container_maxHeight : "550px", 
+            group_maxHeight     : "80px",
+            exclusive           : false,
+            position: "topleft",
+            collapsed: false
         };
         
-        
         // Add the zoom and layer countrol as well as a scale
-        L.control.layers(baseMaps, overlayMaps, {position:'topleft', collapsed: false}).addTo(map);
+        L.Control.styledLayerControl(baseMaps, overlayMaps, options).addTo(map);
         L.control.scale().addTo(map);
         L.control.zoom({
             position: 'topright'
