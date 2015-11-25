@@ -36,7 +36,7 @@
     box-sizing: content-box;
 }
 .ac-container label:hover{
-	background: #fff;
+	color: #c4c4c4;
 }
 .ac-container input.menu:checked + label,
 .ac-container input.menu:checked + label:hover{
@@ -56,10 +56,10 @@
 	height: 24px;
 	right: 13px;
 	top: 7px;
-	background: transparent url(images/arrow_down.png) no-repeat center center;	
+	background: transparent url(images/arrow_down2.png) no-repeat center center;	
 }
 .ac-container input.menu:checked + label:hover:after{
-	background-image: url(images/arrow_up.png);
+	background-image: url(images/arrow_up2.png);
 }
 .ac-container input.menu{
 	display: none;
