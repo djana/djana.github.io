@@ -92,7 +92,7 @@
             transparent:true,
             version:'1.1.1',
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
-        })<!--.setOpacity(0.8)-->;
+        }).setOpacity(0.8);
             
         var ro_osm_amenity = L.tileLayer.wms(ro_osm_wms,
         {
