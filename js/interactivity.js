@@ -20,6 +20,7 @@
         var dob_wms ="http://geocarto.ethz.ch/cgi-bin/dob_vector/qgis_mapserv.fcgi?";
         var ro_osm_wms = "http://geocarto.ethz.ch/cgi-bin/osm/qgis_mapserv.fcgi?map=ro_osm_20150601.qgs";
         var raster = "http://geocarto.ethz.ch/cgi-bin/ro_raster_data/qgis_mapserv.fcgi?";
+        var gov_animal ="http://geocarto.ethz.ch/cgi-bin/gov_animals/qgis_mapserv.fcgi?";
         
         var ro_relief = L.tileLayer.wms(raster,
         {
@@ -111,6 +112,17 @@
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
         })<!--.setOpacity(0.8)-->;
         
+        var ro_gov_animals_counties = L.tileLayer.wms(gov_animal,
+        {
+            layers:'ro_gov_animals_counties',
+            format: 'image/png',
+            transparent:true,
+            version:'1.1.1',
+            attribution: '&copy; <a href="http://data.gov.ro/dataset/numar-bovine-ovine-caprine-porci-pe-localitati-si-gospodarii"> data.gov.ro</a> licensed OGL-ROU-1.0'
+            
+        }).setOpacity(0.8);
+        
+        
         // and set up the switch for the layer
         var baseMaps =[
             {
@@ -129,9 +141,9 @@
                 groupName: "Dobrogea",
                 expanded:false,
                 layers:{
-                "infra": dob_infra,
-                "water": dob_water,
-                "tourism": dob_tourism
+                "Road & Rail networks": dob_infra,
+                "Hydrography": dob_water,
+                "Touristic PoI": dob_tourism
                     
                 }
             },
@@ -159,6 +171,14 @@
                 expanded:false,
                 layers:{
                    "Population Density 2012": pc_population
+                }
+            }
+            ,
+            {
+                groupName: "Data.gov.ro",
+                expanded:false,
+                layers:{
+                   "Livestock (heads/sqkm)": ro_gov_animals_counties
                 }
             }
         ]; 
