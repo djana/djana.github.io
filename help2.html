@@ -45,7 +45,7 @@
                     <span class="bar"></span>
                 </button>
                 <ul>
-                    <li><a href="index2.html">The Geoportal</a></li>
+                    <li><a href="index2.html">The Geoportal Viewer</a></li>
                     <li><a href="about2.html">About</a></li>
                     <li class="active"><a href="#">FAQ &amp; Contact</a></li>
                     <!--<li><a href="#">Metadata</a></li>
@@ -57,33 +57,111 @@
                 <div class="row">
                     <section class="col of-12">
                         <a href="http://geoidea.ro" target="_blank">
-                            <img id="geoidea_logo" alt="geoidea" src="images/logo_horizontal.png" width="700" height="80"/>
+                            <img id="geoidea_logo" alt="geoidea" src="images/logo_horizontal.png" width="700" height="80"/>                            
+                    </section>
+
+                    <section class="col of-9">
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>About Geodata</h3>
+                        <ul>
+                            <li><a href="#toc_geodata">What are geodata?</a></li>
+                            <li><a href="#toc_opengeodata">What are open geodata?</a></li>
+                            <li><a href="#toc_polsitu">What is the political situation in Romania in regards to open (geo)data?</a></li>
+                        </ul>
+                        <h3>About the Geoportal</h3>
+                        <ul>
+                            <li><a href="#toc_sources">What are the sources of the geodata used by the Geoportal?</a></li>
+                            <li><a href="#toc_viewer">How does the Geodata Viewer work?</a></li>
+                            <li><a href="#toc_download">How can I download the geodata on the geoportal?</a></li>
+                        </ul>
+                        <p><br/></p>
+                        <h4 id="toc_geodata">What are geodata?</h4>
+                        <p>As Geodata we can define every dataset that has a spatial aspect or component. Synonyms are "spatial data",
+                            "geographic data", "geographic data sets" or "GIS data". The syllable "Geo" implies that the dataset has a
+                            spatial component that allows to georeference the described phenomena to a location or region on the earth.</p>
+                        <p><br/></p>
+                        <h4 id="toc_opengeodata">What are open geodata?</h4>
+                        <p>The idea of open data, and thus of open geodata, is that they should be freely accessible to the public in the sense of
+                            at no cost and without any restriction linked to patent or copyright. The following definition can be found on 
+                            <a href="http://opendefinition.org/" target="_blank">opendefinition.org</a>:</p>
+                        <blockquote>A piece of data or content is open if anyone is free to use, reuse, and redistribute it — subject only, 
+                            at most, to the requirement to attribute and/or share-alike</blockquote>
+                        <p><br/></p>
+                        <h4 id="toc_polsitu">What is the political situation in Romania in regards to open (geo)data?</h4>
+                        <p> Thanks to its accession to the European Union in 2007, Romania has to implement EU initiatives like the Directive for an Infrastructure for Spatial 
+                            InfoRmation in Europe (INSPIRE).
+                            Its purpose is the harmonization of geodata provided by the administrations of the member states. Furthermore it demands the implementation of a standardized 
+                            interface for simplified exchange of geodata across borders. In Romania, INSPIRE started with the constitution of the National Spatial Data 
+                            Infrastructure Council (INIS) based on a Government Ordinance in 2010. The INIS Council is responsible for the coordination and implementation of the
+                            INSPIRE Directive in Romania.
+                            The Romanian Government also signed the Open Governemnt Partnership in 2011 and launched an <a href="http://data.gov.ro" target="_blank">open data portal</a> 
+                            that include open data with a spatial component.</p>
+                        <!-- Another initiative, initialized by the European Union in 2003 and translated into action by the Romanian government in 2005, requires an opening 
+                            of environmental information to the general public. So any applicant has the right to view data at his request without having to state an interest 
+                            or paying an unreasonable amount. For realization new online databases with free access have to be developed and existing ones have to be enhanced 
+                            by a public-administration interface. NOT CLEAR: ask Jan where he got that-->
+                        <p>For more information about the legal and political situation, as well as the actual conditions, regarding open geodata in Romania, please visit 
+                            the project website, and more specifically the <a href="http://geoidea.ethz.ch/en/en_results.html" target="_blank">Results</a> page.</p>
+                        <p><br/></p>
+                        <h4 id="toc_sources">What are the sources of the geodata used by the Geoportal?</h4>
+                        <p>The two base maps <strong>Black and White</strong> and <strong>OpenStreetMap</strong> are directly used from the non-profit organization OpenStreetMap. 
+                            Inspired by the success of Wikipedia, this collaborative project wants to create a free editable map of the world, independent of restrictions or availability. 
+                            Additionally, there is a shaded relief background that the IKG derived from the GDLSDEM data.</p>
+                        <p>The three layers covering the touristic  area of <strong>Dobrogea</strong> along the Black Sea coast offer information about lakes and rivers, transport infrastructure and 
+                            touristic information. These maps and data were produced and released under an open licence for touristic purposes by the University of Bucharest, Faculty of Geography.</p>
+                        <p>The <strong>OSM4RO</strong> layer(OpenSteetMap for Romania) uses the OpenStreetMaps data and a similar symbolization and shows elements of landuse, 
+                            transport and nature.</p>
+                        <p><strong>OSM4RO amenity</strong> layer extends the content by showing objects like points of interest, restaurants, bars, car parks or hospitals. Elements of 
+                            transport like railway stations or bus stops are displayed in the layer <strong>OSM4RO extra</strong>.</p>
+                        <p>The <b>population density</b> in 2012 are provided by the project “Despre Sate”, that offers statistical 
+                            data regarding the administration, the economy, the demography and historical monuments for all Romanian localities.
+                        </p>
+                          <p>  The maps <b>Municipality Mayor 2012</b> 
+                            and <b>Country Council President 2012</b> were developed using data from the following sources:
+                            The Central Bureau of Elections,The National Institute of Statistics,The National Agency for Cadastre and Land Registration, and 
+                            http://www.ancpi.ro/dwf/INDEX_1_2.dwf and derivative works of the above.
+                            All the information and works in the current website are available in the public domain or are licenced via Creative Commons 
+                            Attribution-ShareAlike 3.0 Unported License (as applicable). The source code of the application is licenced under GPLv3. 
+                            All data and code source are available for download on the webpage www.politicalcolours.ro for personal use.</p>
+                        <p><br/></p>
+                        <h4  id="toc_viewer">How does the Geodata Viewer work?</h4>
+                        <p>We employ a three-tier-architecture for our system: a database (the data tier), services (the logic tier) and the graphical user 
+                            interface (the presentation tier).
+                            The PostgreSQL/PostGIS database stores the geodata that are access by a QGIS Server with a Web Map Service (WMS). The WMS generates 
+                            the data visualization and sends the visualization, or map, to the graphical user interface (GUI) in an image format. The GUI is based 
+                            on a simple use of the basic functionality of the <a href="http://codewithspark.com/">Spark</a> framework and the 
+                            <a href="http://leafletjs.com/" target="_blank">Leaflet</a> library for the map delivery.</p>
+                        <p><br/></p>
+                        <h4  id="toc_download">How can I download the geodata on the geoportal?</h4>
+                        <p>This is only an alpha verson and the download tools are not available yet. However, in a further version, you will get the possibility to download geodata either by 
+                            using a dataframe to define an area or by selecting a whole map layer.
+                            At the moment, you only can view geodata in The Geoportal Lite. For downloading data , you can visit the Geoportal Pro at
+                            <a href="http:geoidea.ethz.ch" target="_blank">Geoidea.ro - The Geoportal</a>.</p>
+                    </section>
+                    <section class="col of-3">
+                        <h2>Contact</h2>
+                        <h4>Institute of Cartography and Geoinformation (IKG) at ETH Zürich</h4>
+                            <p><i>Director:</i> Prof. Dr. Lorenz Hurni</p>
+                            <p><i>E-mail:</i> <a href="mailto:lhurni@ethz.ch">lhurni@ethz.ch</a></p>
+                            <p><i>Contact person:</i> Nadia Panchaud</p>
+                            <p><i>E-mail:</i> <a href="mailto:geoidea@ethz.ch">geoidea@ethz.ch</a></p>
+                            <p><i>Phone:</i> +41 44 633 30 37</p>
+                            <p><i>Address:</i> ETH Zurich, Institute of Cartography and Geoinformation, Stefano-Franscini-Platz 5, 8093 Zurich, Switzerland</p>
+
+
+                        <h4>Groundwater Engineering Center (CCIAS) at UCTB, bucharest, Romania</h4>
+                            <p><i>Director:</i> Constantin Radu Gogu</p>
+                            <p><i>E-mail:</i> <a href="mailto:radu.gogu@utcb.ro">radu.gogu@utcb.ro</a></p>
+                            <p><i>Contact person:</i> Dragos Gaitanaru</p>
+                            <p><i>E-mail:</i> <a href="mailto:dragos.gaitanaru@utcb.ro">dragos.gaitanaru@utcb.ro</a></p>
+                            <p><i>Phone:</i> +40 746 961 119</p>
+                            <p><i>Address:</i> Colentina Laboratories, Faculty of Hydrotechnics, Technical University of Civil Engineering, Str. Rascoalei 1907 nr. 5, Bucharest, Sector 2, Romania</p>
                             
-                            <h2>FAQ &amp; Contact</h2>
-                            
-                    </section>
-                </div>
-                <div class="row">
-                    <section class="col of-12">
-                        <h2>Partners</h2>
-                    </section>
-                    <section class="col of-6">
-                        <h3>Institute of Cartography and Geoinformation (IKG) at ETH Zürich</h3>
-                       
-                    </section>
-                    <section class="col of-6">
-                        <h3>Groundwater Engineering Center (CCIAS) at UCTB, bucharest, Romania</h3>
                         </section>
                 </div>
                 
                 
-                <section class="row limit">
-                    <div class="col of-12">
-                        <h2>Technical details</h2>
-                        
-                     
-                    </div>
-                </section>
+              
             </main>
             <footer role="contentinfo">
                 <p> Copyright &copy; Institute of Cartography and Geoinformation, ETH Zurich 2013-<time datetime="2015">2015</time> ––– powered by <a href="http://codewithspark.com/">Spark</a> &amp; <a href="http://leafletjs.com">Leaflet</a></p>
