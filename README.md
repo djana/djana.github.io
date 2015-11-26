@@ -1,6 +1,7 @@
 #About GEOIDEA.RO
 GEOIDEA.RO stands for GEodata Openness Initative for Development and Economic Advancement in ROmania and started in January 2013. It aims at improving the scientific basis for open geodata model adoption in Romania.
 This project is co-financed by a grant from Switzerland through the Swiss Contribution to the enlarged European Union via the Swiss-Romanian Cooperation Programme.
+The main objective of the GEOIDEA.RO project is to improve the scientific basis for open geodata model adoption in Romania.
 
 
 #About The Geoportal Lite
