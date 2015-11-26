@@ -140,7 +140,7 @@ L.Control.StyledLayerControl = L.Control.Layers.extend({
 				}	
 					
 				// set the max-height of control to y value of map object
-				this._default_maxHeight = this.options.container_maxHeight ?  this.options.container_maxHeight : (this._map._size.y - 70);
+				this._default_maxHeight = this.options.container_maxHeight ?  this.options.container_maxHeight : (this._map._size.y -70);
 				containers[c].style.maxHeight = this._default_maxHeight + "px";
 				
 			}

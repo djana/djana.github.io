@@ -87,7 +87,16 @@
         
         var ro_osm_base = L.tileLayer.wms(ro_osm_wms,
         {
-            layers: 'ro_osm_landuse_pl,ro_osm_natural_pl,ro_osm_building_pl,ro_osm_waterway_ln,ro_osm_highway_ln,ro_osm_railway_ln,ro_osm_natural_pt',
+            layers: 'ro_osm_landuse_pl,ro_osm_natural_pl,ro_osm_waterway_ln, ro_osmwaterway_pl,ro_osm_natural_pt',
+            format: 'image/png',
+            transparent:true,
+            version:'1.1.1',
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses(by-sa/2.0/">CC BY-SA</a>'
+        }).setOpacity(0.8);
+        
+        var ro_osm_network = L.tileLayer.wms(ro_osm_wms,
+        {
+            layers: 'ro_osm_highway_ln,ro_osm_railway_ln',
             format: 'image/png',
             transparent:true,
             version:'1.1.1',
@@ -141,8 +150,8 @@
                 groupName: "Dobrogea",
                 expanded:false,
                 layers:{
-                "Road & Rail networks": dob_infra,
                 "Hydrography": dob_water,
+                "Road & Rail networks": dob_infra,
                 "Touristic PoI": dob_tourism
                     
                 }
@@ -152,6 +161,7 @@
                 expanded:false,
                 layers:{
                 "Base":ro_osm_base,
+                "Road & Rail Networks":ro_osm_network,
                 "Amenity":ro_osm_amenity,
                 "Extra":ro_osm_extra
                     
