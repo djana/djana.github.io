@@ -87,7 +87,7 @@
         
         var ro_osm_base = L.tileLayer.wms(ro_osm_wms,
         {
-            layers: 'ro_osm_landuse_pl,ro_osm_natural_pl,ro_osm_waterway_ln, ro_osmwaterway_pl,ro_osm_natural_pt',
+            layers: 'ro_osm_landuse_pl,ro_osm_natural_pl,ro_osm_waterway_ln,ro_osm_waterway_pl,ro_osm_natural_pt',
             format: 'image/png',
             transparent:true,
             version:'1.1.1',
