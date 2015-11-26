@@ -8,8 +8,8 @@ The Geoportal Lite of the GEOIDEA.RO project is a lighter version that allows th
 
 #Copyright
 
-*[Spark] (http://codewithspark.com/) is used for the responsive frame work of the page. Spark is © 2013-2014 Scott Fotheringham at [Pixelbend Studios LTD.](https://www.pixelbendstudios.com/), released under the MIT license.
-*[Leaflet](http://leafletjs.com/) is the map framework used for this geoportal. Copyright (c) 2010-2015, Vladimir Agafonkin
+* [Spark] (http://codewithspark.com/) is used for the responsive frame work of the page. Spark is © 2013-2014 Scott Fotheringham at [Pixelbend Studios LTD.](https://www.pixelbendstudios.com/), released under the MIT license.
+* [Leaflet](http://leafletjs.com/) is the map framework used for this geoportal. Copyright (c) 2010-2015, Vladimir Agafonkin
 Copyright (c) 2010-2011, CloudMade
-*Additionally, we use the Leaflet plugin [StyledLayerControl](https://github.com/davicustodio/Leaflet.StyledLayerControl) by Davi Custodio, which is licensed under a [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0).
+* Additionally, we use the Leaflet plugin [StyledLayerControl](https://github.com/davicustodio/Leaflet.StyledLayerControl) by Davi Custodio, which is licensed under a [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0).
 
