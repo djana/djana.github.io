@@ -47,5 +47,5 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # StyledLayerControl License
-This work is licensed under a Creative Commons Attribution 3.0 Unported License.
-http://creativecommons.org/licenses/by/3.0
+This work is licensed under a [Creative Commons Attribution 3.0 Unported](http://creativecommons.org/licenses/by/3.0) License.
+
