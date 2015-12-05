@@ -154,7 +154,8 @@
         var div = L.DomUtil.create('div', 'info legend');
          div.innerHTML += '<h4>Points of Interest</h4><p><small>within 5km of the Danube</small></p>';
          div.innerHTML += '<div class=circle  id="archeo"></div><p>National Archeological Site</p>';
-         div.innerHTML += '<div class=circle id="museum"></div><p>Museum</p>'; 
+         div.innerHTML += '<div class=circle id="museum"></div><p>Museum</p>';
+         div.innerHTML += '<small> from the Institutul Național al Patrimoniului, licensed under <a href="http://data.gov.ro/base/images/logoinst/OGL-ROU-1.0.pdf" target="_blank">OGL-ROU-1.0</a></small>'; 
         return div;
         };
         legend.addTo(map);
