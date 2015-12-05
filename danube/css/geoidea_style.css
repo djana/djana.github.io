@@ -1,0 +1,181 @@
+/* Styles for the html pages of the GEOIDEA.RO Geoportal*/
+.container{
+padding: 0px 0px 30px 0px;
+}
+
+/* Class for the banner and navigation */
+header{
+background-color: #0D4563;
+}
+
+header h1{
+padding-top: 20px;
+	margin-bottom: 0px;
+	color: #fff;
+	font-size: 36px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin-top:0px;
+	font-weight:300;
+}
+
+nav{
+border-bottom: 1px solid rgb(13,69,99);
+}
+
+nav.container{
+    padding-top: 0px;
+    padding-bottom:0px;
+    margin-bottom:10px;
+}
+nav.bar li:hover > a,
+nav.bar li > a:hover,
+nav.bar li > a:focus {
+    background-color:transparent;
+}
+nav.bar ul a{
+    font-weight:300;
+}
+
+nav.bar ul li.active > a{
+    color: #44A7BB;
+}
+
+#logo{
+    padding:20px 0px;
+    margin-bottom:10px;
+}
+
+/* News */
+#news {
+    font-size:85%;
+}
+#news p{
+margin-bottom:2px;
+}
+
+article {
+margin-bottom:12px;
+}
+
+/* Headings */
+h1{}
+h2{
+	color: rgb(13,69,99);
+	font-size:200%; /* original 250% */
+	margin: 21px 0px;
+	font-weight: 400;
+}
+h3{
+	color: rgb(13,69,99);
+	font-size:150%; /* original 220% */
+	margin: 15px 0px;
+	padding-top:10px;
+	padding-bottom:5px;
+	font-weight: 300;
+}
+h4{
+	font-size:120%; /* original 180% */
+	color:#44A7BB;
+	margin: 15px 0px;
+	font-weight:300;
+}
+h5{
+   font-size:100%; /* original 140% */
+   font-weight:300;
+}
+.red{
+	color:red;
+}
+
+/* Footer */
+footer p{
+	padding: 20px 0;
+	color: #888888;
+	text-align: center;
+	font-size:0.9em;
+}
+
+/* Links */
+a {
+	color:#44a7bb;
+}
+
+a:hover {
+	color: rgb(34,71,98);
+	background-color: rgb(219,228,234);
+}
+
+/* Input */
+input{
+    font-weight:bold;
+}
+
+/* Tables */
+table thead{
+	background-color:#0D4563;
+	color:white;
+	height:22px;
+	/*text-align: left;*/
+}
+th{
+    padding: 5px 10px;
+    text-align:left;
+}
+td{
+	padding:3px 10px;
+}
+.name{
+	color:#0D4563;
+	background:#44a7bb;
+	font-weight:bold;
+}
+
+/* Style for the availability page */
+.date{
+margin-top: 30px;
+font-size: 0.8em;
+}
+.mapCategory{
+	width:140px;
+}
+.format{
+	width:70px;
+}
+.mc1{
+	background-color:#fff;
+}
+.mc2{
+	background-color:#f2f2f2;
+}
+.mp1{
+	background-color:#90d1dd;
+}
+.mp2{
+	background-color:#49828c;
+}
+.l1{
+	background-color:white;
+}
+.l2{
+	background-color:#f2f2f2;
+}
+.bottom{
+	border-bottom: 1px solid #0D4563;
+}
+
+a.toc:hover{
+	color:#44A7BB;
+	background-color:#082B3F;
+}
+
+/* Style for the metadata table */
+.metadata tr{
+	border: 1px solid #BFBFBF;
+}
+.metadata tr th{
+	border-right: 1px solid #BFBFBF;
+}
+
+/* Map style */
+#map {height:700px;}
