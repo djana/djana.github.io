@@ -131,7 +131,103 @@
             
         }).setOpacity(0.8);
         
+       /* ADDITIONAL DATA LAYERS (geojson)*/
+       
+       // POP DENSITY GRID
+        // Define the different classes and the appropriate colors
+        function getColor(percentage){
+            if (percentage <=1){return "#feebe2"}
+            else if (percentage >1 && percentage <=51){return "#fcc5c0"}
+            else if (percentage >51 && percentage <=101){return "#fa9fb5"}
+            else if (percentage >101 && percentage <=151){return "#f768a1"}
+            else if (percentage >151 && percentage <=201){return "#dd3497"}
+            else if (percentage >201 && percentage <=1001){return "#ae017e"}
+            else if (percentage >1001){return "#7a0177"}
+            else {return '#ffffff'}
+        }
+        // Define the style of the grid
+        function styleGrid(feature){
+            return {
+            fillColor: getColor(feature.properties.TOT_P),
+            color: '#ffffff',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+            };
+        }
+        // function for the popup window
+        function popUpGrid(feature,layer){
+            layer.bindPopup('Inhabitants per km2:</br><b>' + feature.properties.TOT_P) +'</b>';
+            layer.on('onclick', function(e){
+        this.openPopup();
+         });
+        }
+        // define the layer
+        var pop_density_grid = L.geoJson(pop_density_data,{onEachFeature:popUpGrid,style:styleGrid});
         
+        // NATIONAL ARCHEOLOGICAL REGISTER (data.gov.ro)
+        // 5km buffer along the Danube
+        
+        // Define the style of the pointa
+        function styleArch(feature){
+            return {
+            fillColor: '#2ca25f',
+            color: '#e5f5f9',
+            weight: 0.5,
+            opacity: 1,
+            fillOpacity: 0.8,
+            radius: 6
+            };
+        }
+        
+        // function for the popup window
+        function popUpArch(feature,layer){
+            layer.bindPopup('<b>' + feature.properties.nume + '</b></br>('+ feature.properties.localitate +', ' + feature.properties.județul + ')');
+            layer.on('onclick', function(e){
+        this.openPopup();
+         });
+        }
+         // define the layer
+        var nat_arch_reg_2013 = L.geoJson(nat_arch_reg_data,{
+            onEachFeature:popUpArch,
+            style:styleArch,
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng)}});
+                
+        // NATIONAL MUSEUM REGISTER (data.gov.ro)
+        // 5km buffer along the Danube
+        
+        // Define the style of the pointa
+        function styleMus(feature){
+            return {
+            fillColor: '#1f78b4',
+            color: '#a6cee3',
+            weight: 0.5,
+            opacity: 1,
+            fillOpacity: 0.8,
+            radius: 6
+            };
+        }
+        
+        // function for the popup window
+        function popUpMus(feature,layer){
+            layer.bindPopup('<b>' + feature.properties.denumirea + '</b></br>('+ feature.properties.localitate +', ' + feature.properties.județul + ')');
+            layer.on('onclick', function(e){
+        this.openPopup();
+         });
+        }
+         // define the layer
+        var museums = L.geoJson(museum_data,{
+            onEachFeature:popUpMus,
+            style:styleMus,
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng)}});
+
+        
+        
+        
+        
+       /* LAYER STACK*/ 
         // and set up the switch for the layer
         var baseMaps =[
             {
@@ -180,7 +276,8 @@
                 groupName: "Statistics",
                 expanded:false,
                 layers:{
-                   "Population Density 2012": pc_population
+                   "Population Density 2012": pc_population,
+                   "Population Density 2014 (grid)": pop_density_grid
                 }
             }
             ,
@@ -188,7 +285,9 @@
                 groupName: "Data.gov.ro",
                 expanded:false,
                 layers:{
-                   "Livestock (heads/sqkm)": ro_gov_animals_counties
+                   "Livestock (heads/sqkm)": ro_gov_animals_counties,
+                   "National Archeological Registry - Along the Danube": nat_arch_reg_2013,
+                   "Museums – Along the Danube" : museums
                 }
             }
         ]; 
