@@ -1,7 +1,7 @@
  function init(){
        // Define the map view and authors original center with 834px width  [46, 25.1]
         var map = L.map('map', {
-            center:[44.5, 25], zoom: 7, minZoom: 4, maxZoom: 17, zoomControl: false
+            center:[44.5, 25], zoom: 7, minZoom: 4, maxZoom: 16, zoomControl: false
         });
         map.attributionControl.setPrefix('N. Panchaud');
 
