@@ -83,16 +83,42 @@
          });
         }
          // define the layer
-        var nat_arch_reg_2013 = L.geoJson(nat_arch_reg_data,{
+        /*var nat_arch_reg_2013 = L.geoJson(nat_arch_reg_data,{
             onEachFeature:popUpArch,
             style:styleArch,
             pointToLayer: function (feature, latlng) {
                 return L.circleMarker(latlng)}}).addTo(map);
+                */
+        //loading the geojson using a js file for the power plant - CLUSTER
+        // icon for the single markers
+    var cityIcon = L.icon({
+        iconUrl: 'icon/flash.png',
+        iconSize:    [20, 20],
+        iconAnchor:  [0, 0]
+        });
+
+    var markers_archeo = new L.MarkerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius:25
+        });
+    markers_archeo.addLayer(L.geoJson(nat_arch_reg_data,{
+        onEachFeature: popUpArch,
+        style:styleArch,
+        pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng)}
+     }));
+    map.addLayer(markers_archeo);
+                
+                
+                
+                
+                
+                
                 
         // NATIONAL MUSEUM REGISTER (data.gov.ro)
         // 5km buffer along the Danube
         
-        // Define the style of the pointa
+        // Define the style of the points
         function styleMus(feature){
             return {
             fillColor: '#1f78b4',
@@ -117,6 +143,8 @@
             style:styleMus,
             pointToLayer: function (feature, latlng) {
                 return L.circleMarker(latlng)}}).addTo(map);
+                
+                
 
         
         /*LEGEND*/
@@ -162,9 +190,9 @@
                 groupName: "Data.gov.ro",
                 expanded:true,
                 layers:{
+                   "Museums – Along the Danube" : museums,
+                   "National Archeological Registry - Along the Danube": markers_archeo //nat_arch_reg_2013,
                    
-                   "National Archeological Registry - Along the Danube": nat_arch_reg_2013,
-                   "Museums – Along the Danube" : museums
                 }
             }
         ]; 
